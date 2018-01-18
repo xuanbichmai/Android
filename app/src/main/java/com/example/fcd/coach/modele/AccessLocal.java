@@ -49,6 +49,7 @@ public class AccessLocal {
 
         if(!curseur.isAfterLast()) {
             Date dateMesure =  convertStringToDate(curseur.getString(0));
+            // Using Log.d to print in console the result like System.out.print in java
             Log.d("date=", "date après convertir: "+dateMesure);
 
             //Date dateMesure = new Date();
