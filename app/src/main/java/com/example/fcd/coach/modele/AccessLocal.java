@@ -46,8 +46,9 @@ public class AccessLocal {
         req = "select * from profil";
         Cursor curseur = bd.rawQuery(req, null); ;
         curseur.moveToLast();
-
+        Log.d("nb profil", "***************** nb="+curseur.getCount());
         if(!curseur.isAfterLast()) {
+            Log.d("recup", "*************** date avant conversion ="+curseur.getString(0));
             Date dateMesure =  convertStringToDate(curseur.getString(0));
             // Using Log.d to print in console the result like System.out.print in java
             Log.d("date=", "date après convertir: "+dateMesure);
