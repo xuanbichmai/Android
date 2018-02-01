@@ -1,7 +1,14 @@
 package com.example.fcd.coach.modele;
 
+import org.json.JSONArray;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import static com.example.fcd.coach.outils.MesOutils.convertDateToString;
+import static com.example.fcd.coach.outils.MesOutils.convertStringToDate;
 
 /**
  * Created by fcd on 30/11/2017.
@@ -19,15 +26,16 @@ public class Profil implements Serializable {
     private Integer age;
     private Integer sexe;
     private float img;
-    String message;
-    Date dateMesure;
+    private String message;
+    private Date datemesure;
 
-    public Profil(int poids, int taille, int age, int sexe, Date dateMesure) {
+
+    public Profil(int poids, int taille, int age, int sexe, Date datemesure) {
         this.poids = poids;
         this.taille = taille;
         this.age = age;
         this.sexe = sexe;
-        this.dateMesure = dateMesure;
+        this.datemesure = datemesure;
 
        calculIMG();
        resultIMG();
@@ -57,8 +65,8 @@ public class Profil implements Serializable {
         return message;
     }
 
-    public Date getDateMesure() {
-        return dateMesure;
+    public Date getDatemesure() {
+        return datemesure;
     }
 
     /**
@@ -93,6 +101,18 @@ public class Profil implements Serializable {
                 message = "trop de graisse";
             }
         }
+    }
+
+    public JSONArray convertToJSONArray(){
+        ArrayList uneListe = new ArrayList();
+        uneListe.add(convertDateToString(datemesure));
+        uneListe.add(poids);
+        uneListe.add(taille);
+        uneListe.add(age);
+        uneListe.add(sexe);
+
+        return new JSONArray(uneListe);
+
     }
 }
 

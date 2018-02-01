@@ -2,10 +2,14 @@ package com.example.fcd.coach.controleur;
 
 import android.content.Context;
 
+import com.example.fcd.coach.modele.AccesDistant;
 import com.example.fcd.coach.modele.AccessLocal;
 import com.example.fcd.coach.modele.Profil;
 import java.util.Date;
 import com.example.fcd.coach.outils.Serializer;
+import com.example.fcd.coach.vue.MainActivity;
+
+import org.json.JSONArray;
 
 /**
  * Created by Violette on 11/30/2017.
@@ -16,7 +20,9 @@ public final class Controle {
     private static Controle instance = null;
     private static Profil profil;
     private static String nomFic = "saveprofil";
-    private static AccessLocal accessLocal;
+    //private static AccessLocal accessLocal;
+    private static AccesDistant accesDistant;
+    private static Context contexte;
 
     private Controle() {
         super();
@@ -27,8 +33,10 @@ public final class Controle {
         if (Controle.instance == null) {
             Controle.instance = new Controle();
             //recupSerialize(context);
-            accessLocal = new AccessLocal(context);
-            profil = accessLocal.recupDernier();
+            //accessLocal = new AccessLocal(context);
+            //profil = accessLocal.recupDernier();
+            accesDistant = new AccesDistant();;
+            accesDistant.envoi("dernier", new JSONArray());
 
         }
         return Controle.instance;
@@ -45,7 +53,12 @@ public final class Controle {
         dateMesure = new Date();
         profil = new Profil(poids, taille, age, sexe, dateMesure);
             //Serializer.serialize(nomFic, profil, context);
-        accessLocal.ajout(profil);
+        //accessLocal.ajout(profil);
+        accesDistant.envoi("enreg", profil.convertToJSONArray());
+    }
+
+    public void setProfil(Profil profil) {
+        ((MainActivity)contexte).recupProfil();
     }
 
     /**

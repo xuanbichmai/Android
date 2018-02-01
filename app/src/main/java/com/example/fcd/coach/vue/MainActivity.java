@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         lblIMG = (TextView) findViewById(R.id.lblIMG);
         controle = Controle.getInstance(this);
         ecouteCalcul();
-        recupProfil();
+        //recupProfil();
     }
 
 
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         lblIMG.setText(String.format("%.01f", img) + " : IMG " + message);
     }
 
-    private void recupProfil(){
+    public void recupProfil(){
         if(controle.getPoids() != null)
             txtPoids.setText(""+controle.getPoids());
         if(controle.getTaille() != null)

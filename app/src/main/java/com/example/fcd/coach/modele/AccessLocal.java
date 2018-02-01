@@ -28,7 +28,7 @@ public class AccessLocal {
 
     public void ajout(Profil profil) {
         bd = accesBD.getWritableDatabase();
-        req = "insert into profil values (\"" + profil.getDateMesure() + "\"," + profil.getPoids() +
+        req = "insert into profil values (\"" + profil.getDatemesure() + "\"," + profil.getPoids() +
                 "," + profil.getTaille() + "," + profil.getAge() + "," +
                 profil.getSexe() + ")";
         bd.execSQL(req);

@@ -25,6 +25,19 @@ public abstract class MesOutils {
         return null;
     }
 
+    public static Date convertStringToDate(String uneDate, String vide) {
+        String expectedPattern = "yyyy-MM-dd hh:mm:ss";
+        SimpleDateFormat formatter = new SimpleDateFormat(expectedPattern,Locale.ENGLISH);
+        //formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        try {
+            Date date = formatter.parse(uneDate);
+            return date;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     public static String convertDateToString (Date uneDate) {
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
