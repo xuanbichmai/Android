@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     afficheResult(poids,taille,age,sexe, dateMesure);
                 }
-            }
+                }
         });
     }
 
