@@ -111,7 +111,9 @@ public class Profil implements Serializable {
         uneListe.add(age);
         uneListe.add(sexe);
 
-        return new JSONArray(uneListe);
+        JSONArray jsdata = new JSONArray(uneListe);
+
+        return jsdata;
 
     }
 }

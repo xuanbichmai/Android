@@ -1,4 +1,4 @@
-package com.example.fcd.coach.modele;
+/*package com.example.fcd.coach.modele;
 
 import org.junit.Test;
 
@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 /**
  * Created by fcd on 30/11/2017.
  */
-public class ProfilTest {
+/*public class ProfilTest {
     // création d'un profil : femme de 67kg, 1m65, 35 ans
     private Profil profil = new Profil(67, 165, 35, 0);
     // résultat de l'img correspondant
@@ -26,3 +26,4 @@ public class ProfilTest {
     }
 
 }
+*/

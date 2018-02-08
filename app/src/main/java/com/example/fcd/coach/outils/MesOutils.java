@@ -27,7 +27,7 @@ public abstract class MesOutils {
 
     public static Date convertStringToDate(String uneDate, String vide) {
         String expectedPattern = "yyyy-MM-dd hh:mm:ss";
-        SimpleDateFormat formatter = new SimpleDateFormat(expectedPattern,Locale.ENGLISH);
+        SimpleDateFormat formatter = new SimpleDateFormat(expectedPattern);
         //formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
         try {
             Date date = formatter.parse(uneDate);

@@ -22,7 +22,7 @@ public final class Controle {
     private static String nomFic = "saveprofil";
     //private static AccessLocal accessLocal;
     private static AccesDistant accesDistant;
-    private static Context contexte;
+    private static Context context;
 
     private Controle() {
         super();
@@ -31,6 +31,7 @@ public final class Controle {
 
     public  static final Controle getInstance(Context context) {
         if (Controle.instance == null) {
+            Controle.context = context;
             Controle.instance = new Controle();
             //recupSerialize(context);
             //accessLocal = new AccessLocal(context);
@@ -58,8 +59,11 @@ public final class Controle {
     }
 
     public void setProfil(Profil profil) {
-        ((MainActivity)contexte).recupProfil();
+        Controle.profil = profil;
+        ((MainActivity)context).recupProfil();
     }
+
+
 
     /**
      * récupérer du calcul de IMG
@@ -69,7 +73,7 @@ public final class Controle {
         if(profil != null)
             return profil.getImg();
         else
-            return 0;
+                return 0;
     }
 
     /**

@@ -19,7 +19,7 @@ import java.util.Date;
  */
 
 public class AccesDistant implements AsyncResponse {
-    private static final String SERVERADDR = "http://192.168.56.1/coachENS/serveurcoach.php";
+    private static final String SERVERADDR = "http://192.168.56.1/CoachENS/serveurcoach.php";
     private Controle controle;
     public AccesDistant(){
         controle = Controle.getInstance(null);
@@ -41,9 +41,11 @@ public class AccesDistant implements AsyncResponse {
                     Integer age = info.getInt("age");
                     Integer sexe = info.getInt("sexe");
                     Date datemesure = MesOutils.convertStringToDate(info.getString("datemesure"), "yyyy-MM-dd hh:mm:ss");
-                    Profil unprofil = new Profil(poids, taille, age, sexe, datemesure);
-                    controle.setProfil(unprofil);
+                    Profil profil = new Profil(poids, taille, age, sexe, datemesure);
+                    controle.setProfil(profil);
                 } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (NullPointerException e) {
                     e.printStackTrace();
                 }
             } else if (message[0].equals("Erreur")) {
@@ -62,7 +64,7 @@ public class AccesDistant implements AsyncResponse {
         AccesHTTP accesDonnees = new AccesHTTP();
         accesDonnees.delegate = this;
         accesDonnees.addParam("operation", operation);
-        accesDonnees.addParam("lesDonnees", lesDonneesJSON.toString());
+        accesDonnees.addParam("lesdonnees", lesDonneesJSON.toString());
         accesDonnees.execute(SERVERADDR);
 
     }
