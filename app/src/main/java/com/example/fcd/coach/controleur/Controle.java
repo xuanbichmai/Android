@@ -3,11 +3,10 @@ package com.example.fcd.coach.controleur;
 import android.content.Context;
 
 import com.example.fcd.coach.modele.AccesDistant;
-import com.example.fcd.coach.modele.AccessLocal;
 import com.example.fcd.coach.modele.Profil;
 import java.util.Date;
-import com.example.fcd.coach.outils.Serializer;
-import com.example.fcd.coach.vue.MainActivity;
+
+import com.example.fcd.coach.vue.CalculActivity;
 
 import org.json.JSONArray;
 
@@ -60,7 +59,7 @@ public final class Controle {
 
     public void setProfil(Profil profil) {
         Controle.profil = profil;
-        ((MainActivity)context).recupProfil();
+        ((CalculActivity)context).recupProfil();
     }
 
 
